@@ -19,7 +19,11 @@ This repository is the public home of [`@extentos/mcp-server`](https://www.npmjs
 claude mcp add extentos -- npx -y @extentos/mcp-server@latest
 ```
 
-**Cursor / Cline / any MCP client**
+**Cursor** — one click:
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=extentos&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBleHRlbnRvcy9tY3Atc2VydmVyQGxhdGVzdCJdfQ==)
+
+**Cline / any MCP client**
 
 ```json
 {
