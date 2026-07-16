@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://extentos.com/docs
+    about: Guides, SDK reference, and the MCP tools reference
+  - name: Security report
+    url: https://github.com/extentos/mcp-server/security/advisories/new
+    about: Report a vulnerability privately (please don't open a public issue)
