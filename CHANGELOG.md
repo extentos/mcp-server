@@ -4,6 +4,25 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.30 — 2026-07-31
+
+Round 3 of the fresh-agent audit: an audio-only app. The build went cleanly —
+two dependencies, no repo block, no token, no Meta credentials, working in ten
+minutes. The findings were about what the tools said, not what the SDK did.
+
+- An audio-only footprint now scaffolds in a single call. It was asking where to
+  put a connection page that a voice app never renders.
+- The voice scaffold no longer emits a Meta credentials file, in the same
+  response that says you need no Meta account.
+- `getPermissions` no longer demands Meta registration for audio-only.
+  Transcription, speak and record route through the phone's own STT and TTS over
+  Bluetooth, never through the vendor SDK.
+- The GitHub-token preflight is marked device-path-only.
+- Three canonical examples were built on a recording transcript field that
+  nothing populates, so they could only ever say "I didn't catch that". They now
+  read the transcription stream.
+- `voice_command` documents that `onPhrase` hands you no transcript.
+
 ## 0.11.29 — 2026-07-31
 
 Round 2 of the fresh-agent audit. Every finding was verified against source
