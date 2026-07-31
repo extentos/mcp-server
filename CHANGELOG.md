@@ -4,6 +4,27 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.29 — 2026-07-31
+
+Round 2 of the fresh-agent audit. Every finding was verified against source
+before anything changed, which reversed the answer on three of them.
+
+- The simulator needs a camera source and nothing said so: `capturePhoto`
+  returns `camera_not_started` until one is armed, while every other diagnostic
+  reports healthy. Cost a fresh agent ~35 minutes. Simulator-only — real glasses
+  photograph cold.
+- `generateConnectionModule` still told developers to add their own OpenAI key
+  in the dashboard. There is no BYOK into Extentos; the assistant is
+  gateway-only.
+- `getPermissions` pointed Meta credentials at a file that has no field for them.
+- Conflicting history numbers, and a reference to a "BYOK key" that does not
+  exist.
+- The Android preflight said "before any other tool call" for a check that needs
+  a project to already exist.
+- `voice_command` never mentioned `firesWhen`, whose default silently stops a
+  wake phrase firing once an assistant session is active.
+- The generated manifest persisted an empty permissions array.
+
 ## 0.11.28 — 2026-07-31
 
 Everything here came from one fresh-agent audit of the published surface: an
