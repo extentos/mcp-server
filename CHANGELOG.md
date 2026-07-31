@@ -4,6 +4,32 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.28 — 2026-07-31
+
+Everything here came from one fresh-agent audit of the published surface: an
+agent building a real camera + assistant app using only these tools and the
+public docs. Every finding was reproduced before anything changed.
+
+- `validateIntegration` now re-reads the credentials file it emits. It returned
+  18/18 "Safe to test" for a project whose credentials were still `REPLACE_ME`.
+  The new check warns rather than errors — the simulator genuinely does not need
+  real credentials — and says the true thing: safe to simulate, cannot reach
+  hardware.
+- The retired `'ai'` event-log chip is gone from live output. Session setup and
+  six code-example passages still recommended a filter value removed on
+  2026-07-25, so following the freshest text produced a tool error. `ai_call_*`
+  events live under `'custom'`.
+- "Can I bring my own key for the assistant?" had four different answers in one
+  session, including one example that contradicted itself. Managed gateway is
+  the only path, and the text now says so consistently.
+- The paste-ready Anthropic client no longer defaults to a previous-generation
+  model id.
+- BYOK examples pass `failureReason` to `aiCall`, so a typed failure stops
+  logging as a success. Needs SDK 2.1.1.
+
+Pairs with SDK **2.1.1**, which fixes a host-app crash when the vendor SDK never
+initialised, and adds `failureReason` to `observability.aiCall`.
+
 ## 0.11.27 — 2026-07-31
 
 Serves SDK **2.1.0** on both platforms (Maven Central + `swift-glasses`).
