@@ -4,6 +4,18 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.27 — 2026-07-31
+
+Serves SDK **2.1.0** on both platforms (Maven Central + `swift-glasses`).
+
+- Brilliant Labs no longer appears in `getPlatformInfo`'s Android artifact list. As of SDK 2.1.0 its transport ships inside `com.extentos:glasses`, so an agent that added `com.extentos:glasses-brilliant` was adding a dependency that does nothing. A vendor should cost an app exactly what the vendor charges, and Brilliant charges nothing — no SDK, no account, just BLE. The stub coordinate keeps publishing so existing builds still resolve.
+- Meta stays a separate artifact, because Meta genuinely charges: its DAT artifacts sit behind a credentialed repo.
+
+## 0.11.26 — 2026-07-30
+
+- Brilliant capability corrections: still capture and the microphone work on both platforms; video is refused permanently, because neither Brilliant device has a video primitive or a codec.
+- `createSimulatorSession` gained a platform × vendor gate. A vendor whose transport cannot exist on the session's platform is now refused at mint rather than offered and then failing — Android XR's model is a projected Android activity, so no iOS transport can exist for it.
+
 ## 0.11.20 — 2026-07-29
 
 Catches this public changelog up: it had stopped at 0.11.0 while npm reached
