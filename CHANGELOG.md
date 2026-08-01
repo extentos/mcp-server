@@ -4,6 +4,20 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.31 — 2026-08-01
+
+Serves SDK **2.1.2**, and carries the correction that release exists for.
+
+- `recordDiscrete` used to transcribe in the simulator and never did on
+  hardware. An app keyed on `AudioRecording.transcript` demoed perfectly and
+  went silent on real glasses, which is how three canonical examples shipped
+  broken and stayed broken. 2.1.2 closes it: both substrates leave the field
+  empty.
+- The `record_audio` guide claimed the block "AUTO-transcribes — no separate
+  STT pipeline needed" and handed you the transcript as LLM-ready. True in the
+  simulator, false on device. Read `audio.transcriptions()` for the WORDS; use
+  `recordDiscrete` for the AUDIO.
+
 ## 0.11.30 — 2026-07-31
 
 Round 3 of the fresh-agent audit: an audio-only app. The build went cleanly —
