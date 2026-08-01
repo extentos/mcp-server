@@ -4,6 +4,10 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.32 — 2026-08-01
+
+- The `record_audio` guide still described the pre-2.1.2 split, where the simulator populated the recording transcript and hardware did not. 2.1.2 closed that divergence, so the field is empty everywhere now, and the docs say so. `recordDiscrete` gives you the AUDIO; `audio.transcriptions()` gives you the WORDS.
+
 ## 0.11.31 — 2026-08-01
 
 Serves SDK **2.1.2**, and carries the correction that release exists for.
