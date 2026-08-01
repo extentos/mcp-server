@@ -4,6 +4,14 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.33 — 2026-08-01
+
+Round 4 of the fresh-agent audit, re-running the audio-only surface: five findings instead of ten, working end to end in 13 minutes, compiling first try. Three were real, and all three were incomplete work from the round-3 fixes.
+
+- `registrationRequired` could never be false — the scope set was seeded unconditionally, so an audio-only app was still told Meta DAT registration was required.
+- The scaffold stopped emitting the Meta credentials file on the voice path but kept instructing you to apply it.
+- `validateIntegration` described a `foregroundService.required` value the tool does not return.
+
 ## 0.11.32 — 2026-08-01
 
 - The `record_audio` guide still described the pre-2.1.2 split, where the simulator populated the recording transcript and hardware did not. 2.1.2 closed that divergence, so the field is empty everywhere now, and the docs say so. `recordDiscrete` gives you the AUDIO; `audio.transcriptions()` gives you the WORDS.
