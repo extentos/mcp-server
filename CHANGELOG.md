@@ -4,6 +4,15 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.34 — 2026-08-01
+
+First fresh-agent audit of the **iOS** surface. The good news first: every Swift snippet the guides hand you compiles, and the whole package graph built, ran on the simulator and worked end to end. What was wrong was everything around the code.
+
+- The voice-path `Info.plist` was emitting the full Meta DAT credential dict, the fb-viewapp scheme, the external-accessory protocol and a camera permission — for an audio-only app — then telling you to fill the placeholders in from the Meta Developer Center. Gated on the derived path now. The plist is the one artifact with no Android equivalent, which is why four Android rounds never saw it.
+- `validateIntegration` was scanning the SDK's own source under `DerivedData` and reporting "assistant detected" for an app with no assistant code.
+- `no_drift` claimed all hashes matched for a file another check had just reported missing.
+- "No vendor dependency" was stated platform-neutrally and is Android-shaped; the wording now says what is true on each platform.
+
 ## 0.11.33 — 2026-08-01
 
 Round 4 of the fresh-agent audit, re-running the audio-only surface: five findings instead of ten, working end to end in 13 minutes, compiling first try. Three were real, and all three were incomplete work from the round-3 fixes.
