@@ -101,6 +101,13 @@ The workflow an agent typically runs: discover capabilities → scaffold the con
 
 Discovery, validation, and guidance tools work anonymously. Creating browser-simulator sessions and scaffolding require a free account — the server walks the agent (and you) through a device-code sign-in when needed.
 
+## Community integrations
+
+Independent projects that have built with and evaluated Extentos:
+
+- **[EgoFlow](https://github.com/ego-flow/ego-flow-app/tree/extentos)** — an egocentric-video capture platform. Its `extentos` branch drives the glasses connection and live video through the Extentos Android SDK into EgoFlow's existing RTMP transport and backend, and was taken end-to-end on real Ray-Ban Meta glasses.
+- **[Voice-triggered capture POC](https://github.com/gggaswint/extentos-poc)** — an independent, MIT-licensed iOS proof of concept. A registered wake phrase triggers `glasses.camera.capturePhoto`, driven headlessly through the browser simulator by the MCP tools; the repo has the implementation and a recording of the run.
+
 ## Links
 
 - [Documentation](https://extentos.com/docs)
