@@ -4,6 +4,15 @@ Release notes for [`@extentos/mcp-server`](https://www.npmjs.com/package/@extent
 
 For the full version history, see the [npm versions page](https://www.npmjs.com/package/@extentos/mcp-server?activeTab=versions).
 
+## 0.11.63 — 2026-09-05
+
+First publish since 0.11.60. The npm account was locked out from 26 August to 4 September, so 0.11.61 and 0.11.62 never reached the registry; everything staged for them ships here.
+
+- **Serves SDK 2.8.0.** `getPlatformInfo` and `generateConnectionModule` hand agents the 2.8.0 coordinates on both platforms. Between 2.5.0 and 2.8.0 the SDK added telemetry for the discrete primitives (`capture.completed` with an `errorCode`, `speak.completed`, `device.condition_changed`), the `audio.sendAudio` / `stopAudio` / `outputFidelity` playback path, and full-band phone-only audio on every route.
+- **HTC VIVE Eagle is in the catalog.** Vendor 4 appears in `getPlatformInfo` with its capability set, the scaffold knows how to add the transport, and the production checklist covers the vendor SDK install step. The Android artifact `com.extentos:glasses-htc` is on Maven Central as of 2.8.0.
+- **Removed `listProjectSounds` and `addProjectSound`.** The named-sound library they managed left the SDK in 2.7.0. Push your own audio with `audio.sendAudio`. Tool count is 36.
+- **Upgrading note.** `AssistantConfig.wakeSoundEnabled` was removed in SDK 2.6.0, and `audio.playSound` / `registerSound` / `soundNames` in 2.7.0. Both are source-breaking on both platforms.
+
 ## 0.11.34 — 2026-08-01
 
 First fresh-agent audit of the **iOS** surface. The good news first: every Swift snippet the guides hand you compiles, and the whole package graph built, ran on the simulator and worked end to end. What was wrong was everything around the code.
